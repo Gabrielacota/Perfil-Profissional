@@ -1,0 +1,50 @@
+body {
+  background: url(./assets/mybg-desktop.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  font-size: 16px;
+  color: white;
+}
+#container {
+  width: 588px;
+  height: 712px;
+}
+
+#profile {
+  width: 536px;
+  height: 192px;
+  padding: 24px;
+  text-align: center;
+}
+
+#profile img {
+  width: 112px;
+  height: 112px;
+}
+
+#profile p {
+  margin-top: 8px;
+}
+
+ul {
+  padding: 24px 16px;
+}
+
+ul li {
+  border: 1px solid rgb(255, 255, 255, 0.5);
+  padding: 16px 24px;
+  border-radius: 8px;
+  list-style: none;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 18px;
+}
+
+ul li a {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
