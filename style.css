@@ -6,32 +6,46 @@ body {
 }
 
 * {
-  font-size: 16px;
-  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body * {
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
 #container {
   width: 588px;
-  height: 712px;
+}
+
+footer {
+  font-size: 14px;
+  padding: 24px 0;
+  text-align: center;
 }
 
 #profile {
-  width: 536px;
-  height: 192px;
+  width: 588px;
   padding: 24px;
   text-align: center;
 }
 
 #profile img {
   width: 112px;
-  height: 112px;
 }
 
 #profile p {
   margin-top: 8px;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 ul {
   padding: 24px 16px;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 ul li {
@@ -47,4 +61,19 @@ ul li {
 ul li a {
   margin-top: 16px;
   margin-bottom: 24px;
+}
+
+#icons {
+  width: 588px;
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+#icons a {
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
 }
