@@ -1,8 +1,10 @@
 body {
-  background: url(./assets/mybg-desktop.png);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: var(--background);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+
+  height: 100vh;
 }
 
 * {
@@ -12,18 +14,38 @@ body {
 }
 
 body * {
-  color: white;
+  color: var(---text-color);
   font-family: "Inter", sans-serif;
 }
 
-#container {
-  width: 588px;
+:root {
+  --text-color: white;
+  --background: url(./assets/mybg-mobile.png);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+
+  --surface-hover-color: rgba(255, 255, 255, 0.05);
+
+  --highlight-color: rgba(255, 255, 255, 0.2);
 }
 
-footer {
-  font-size: 14px;
-  padding: 24px 0;
-  text-align: center;
+.light {
+  --text-color: black;
+  --background: url(./assets/mybg-mobile-light.png);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-hover-color: rgba(0, 0, 0, 0.02);
+
+  --highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: auto;
+  padding-top: 56px;
+  padding: 0 24px;
 }
 
 #profile {
@@ -37,30 +59,44 @@ footer {
 }
 
 #profile p {
-  margin-top: 8px;
   font-weight: 500;
-  font-size: 16px;
+  line-height: 24px;
+  margin-top: 8px;
 }
+
+/*sem ul li, por que não precisa dele? O jeito que eu tava fazendo o hover parecia ser um elemento sem conexão com o botão existente, criava um novo botão com dimensões diferentes.*/
 
 ul {
-  padding: 24px 16px;
-  font-weight: 500;
-  font-size: 16px;
-}
-
-ul li {
-  border: 1px solid rgb(255, 255, 255, 0.5);
-  padding: 16px 24px;
-  border-radius: 8px;
+  display: flex;
+  padding: 24px 0;
+  flex-direction: column;
   list-style: none;
-  text-align: center;
-  margin-top: 16px;
-  font-size: 18px;
+  gap: 16px;
 }
 
 ul li a {
-  margin-top: 16px;
-  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  text-decoration: none;
+  font-weight: 500;
+  transition: backgorund 0.2s;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+ul li a:hover {
+  border-radius: 8px;
+  border: 1.5px solid var(--text-color);
+  background: var(--surface-hover-color);
 }
 
 #icons {
@@ -76,4 +112,17 @@ ul li a {
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  transition: background(0.2s);
+  border-radius: 50%;
+  padding: 16px;
+}
+
+#icons a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  font-size: 14px;
+  padding: 24px 0;
+  text-align: center;
 }
