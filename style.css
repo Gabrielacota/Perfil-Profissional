@@ -27,6 +27,8 @@ body * {
   --surface-hover-color: rgba(255, 255, 255, 0.05);
 
   --highlight-color: rgba(255, 255, 255, 0.2);
+
+  --switch-url: url(./assets/moon-stars.svg);
 }
 
 .light {
@@ -38,10 +40,10 @@ body * {
   --surface-hover-color: rgba(0, 0, 0, 0.02);
 
   --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-url: url(./assets/sun.svg);
 }
 
 #container {
-  border: 1px solid red;
   width: 100%;
   max-width: 588px;
   margin: auto;
@@ -50,7 +52,6 @@ body * {
 }
 
 #profile {
-  border: 1px solid blue;
   padding: 24px;
   text-align: center;
 }
@@ -68,8 +69,6 @@ body * {
 /*sem ul li, por que não precisa dele? O jeito que eu tava fazendo o hover parecia ser um elemento sem conexão com o botão existente, criava um novo botão com dimensões diferentes.*/
 
 ul {
-  border: 1px solid red;
-
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -80,7 +79,7 @@ ul {
 ul li a {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /*troquei justify-items por justify-content*/
   padding: 16px 24px;
 
   background: var(--surface-color);
@@ -102,7 +101,6 @@ ul li a:hover {
 
 #icons {
   display: flex;
-  border: 1px solid white;
   justify-content: center;
   padding: 24px 0; /*coloquei 32px antes*/
   font-size: 24px;
@@ -122,8 +120,83 @@ ul li a:hover {
 }
 
 footer {
-  border: 1px solid gray;
   font-size: 14px;
   padding: 24px 0;
   text-align: center;
+}
+
+#switch {
+  width: 64px;
+  position: relative;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+
+  z-index: 1;
+  left: 0;
+
+  /*ALINHAR O ÍCONE DO SOL/LUA*/
+  top: 50%;
+  transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
+.light #switch button {
+  /* right: 0;
+  left: initial; APAGAR */
+  animation: slide-in 0.2s forwards;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --background: var(./assets/mybg-desktop.png);
+  }
+
+  .light {
+    --background: var(./assets/mybg-desktop-light.png);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
+  }
 }
